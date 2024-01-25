@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if ! command -v snap &> /dev/null; then
+    echo "Snapd not found. Installing..."
+    sudo apt update
+    sudo apt install snapd
+fi
+
+
+declare -a jetbrains_paid_tools=("pycharm-professional" "goland" "intellij-idea-ultimate" "datagrip" "clion" "webstorm" "phpstorm")
+
+for tool in "${jetbrains_paid_tools[@]}"; do
+    echo "Installing $tool (License required)..."
+    sudo snap install --classic $tool
+done
+
+declare -a snap_tools=("chrome" "code" "postman" "spotify")
+
+for tool in "${snap_tools[@]}"; do
+    echo "Installing $tool..."
+    sudo snap install $tool
+done
+
+
+declare -a apt_tools=("git" "docker" "meld" "kolourpaint" "gnome-boxes" "postgresql" "mysql-server")
+
+for tool in "${apt_tools[@]}"; do
+    echo "Installing $tool..."
+    sudo apt install -y $tool
+done
+
+
+echo "Installing gcolor3 (Color Picker)..."
+sudo apt install -y gcolor3
+
+echo "Apps Installed!"
+
