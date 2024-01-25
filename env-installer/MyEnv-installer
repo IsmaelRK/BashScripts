@@ -14,11 +14,16 @@ for tool in "${jetbrains_paid_tools[@]}"; do
     sudo snap install --classic $tool
 done
 
-declare -a snap_tools=("chrome" "code" "postman" "spotify")
+declare -a snap_tools=("code" "postman" "spotify")
 
 for tool in "${snap_tools[@]}"; do
-    echo "Installing $tool..."
-    sudo snap install $tool
+    if [ "$tool" == "code" ]; then
+        echo "Installing $tool (classic)..."
+        sudo snap install --classic $tool
+    else
+        echo "Installing $tool..."
+        sudo snap install $tool
+    fi
 done
 
 
