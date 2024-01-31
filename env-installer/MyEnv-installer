@@ -27,7 +27,7 @@ for tool in "${snap_tools[@]}"; do
 done
 
 
-declare -a apt_tools=("git" "docker" "meld" "kolourpaint" "gnome-boxes" "postgresql" "mysql-server")
+declare -a apt_tools=("git" "docker" "meld" "kolourpaint" "gnome-boxes" "postgresql" "mysql-server" "tilix")
 
 for tool in "${apt_tools[@]}"; do
     echo "Installing $tool..."
