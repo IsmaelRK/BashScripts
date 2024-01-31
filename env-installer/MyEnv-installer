@@ -39,4 +39,5 @@ echo "Installing gcolor3 (Color Picker)..."
 sudo apt install -y gcolor3
 
 echo "Apps Installed!"
-
+echo "Choose your default terminal:"
+sudo update-alternatives --config x-terminal-emulator
